@@ -138,7 +138,7 @@ void wsled_clear_led(uint16_t index)
 
 
 /*
- * @brief Resets all leds
+ * @brief Resets all leds to 0, 0, 0 values
  *
  * @param None
  *
@@ -173,7 +173,7 @@ void wsled_display(void)
 
 
 /*
- * @brief Initializes Timer and
+ * @brief Initializes Timer
  *
  * @retval None
  */
@@ -184,7 +184,7 @@ static void timer_init(void)
 	RCC -> APB1ENR |= (1UL << (RCC_APB1ENR_TIM2EN_Pos + timer_offset));
 	//enable counter
 	timer -> CR1 |= TIM_CR1_CEN_Msk;
-	//set tim2 freq(core freq / ARR)
+	//set tim2 freq, tim2 frequency is (core freq / ARR)
 	timer -> ARR = core_clock_freq/LED_PWM_FREQUENCY;
 	//set tim2 channel x pulse width((CCRx/ARR) * 100%)
 	*(&(timer -> CCR1) + t_channel) = 0;

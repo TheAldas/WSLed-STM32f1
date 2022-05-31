@@ -7,17 +7,20 @@
 #define __WSLED_H_
 
 #include <stdint.h>
-#include<stm32f1xx.h>
-
+#include <stm32f1xx.h>
 
 #define WS_NUMBER_OF_LEDS 60UL
 #define WS_DMA_BUFFERED_LEDS 4UL
 
 #define USE_GAMMA_CORRECTION
 
+/* frequency for timer */
 #define LED_PWM_FREQUENCY 800000UL
+/* pin high voltage time is 1/LED_PWM_FREQUENCY * LED_HIGH_BIT */
 #define LED_HIGH_BIT 90/3*2
+/* pin low voltage time is 1/LED_PWM_FREQUENCY * LED_LOW_BIT */
 #define LED_LOW_BIT 90/3
+/* total time it takes to send 1 bit of data to ws2812 led strip is 1/LED_PWM_FREQUENCY * (LED_HIGH_BIT + LED_LOW_BIT) */
 
 #ifdef __cplusplus
 extern "C" {
