@@ -21,13 +21,13 @@ static DMA_Channel_TypeDef *dma_channel = DMA1_Channel7;
 static uint8_t dma_channel_index_offset = 6U;
 //(dma_channel_index_offset * 4) can be used instead of (dma_channel_interrupt_offset)
 //but dma_channel_interrupt_offset is used in DMA IRQ handler to save clock cycles in IRQ handler
-static uint8_t dma_channel_interrupt_offset = dma_channel_index_offset * 4U;
+static uint8_t dma_channel_interrupt_offset = 6U * 4U;
 //Timer used for DMA control
 static TIM_TypeDef *timer = TIM2;
 //Timer used for DMA control channel
 static uint8_t t_channel = 2U;
 
-uint32_t core_clock_freq = 0UL;
+static uint32_t core_clock_freq = 0UL;
 
 static const uint8_t gamma_correction[] = {
     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
