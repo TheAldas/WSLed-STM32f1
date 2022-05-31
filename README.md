@@ -31,3 +31,6 @@ void wsled_clear_all();
 //send leds values to led strip
 void wsled_display();
 ```
+
+## Notes
+1) TiLib library that is used in example 1 can be downloaded from [here](https://github.com/TheAldas/TiLib/tree/main/Src)
